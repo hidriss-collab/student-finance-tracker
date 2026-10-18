@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker Tests</title>
+</head>
+
+<body>
+    <h1>Finance Tracker Tests</h1>
+    <p id="results" aria-live="polite">Running tests...</p>
+    <ul id="test-list"></ul>
+
+    <script type="module">
+        import {
+            validateDescription,
+            validateAmount,
+            validateCategory,
+            validateDate,
+            validateDuplicateWords
+        } from "./scripts/validators.js";
+        
+        const results = document.getElementById("results");
+        const testList = document.getElementById("test-list");
+        let passed = 0;
+        let failed = 0;
+
+        function test(description, result) {
+            const item = document.createElement("li");
+
+            if (result) {
+                item.textContent = "PASS " + description;
+                passed++;
+            } else {
+                item.textContent = "FAIL" + description;
+                failed++;
+            }
+
+            testList.appendChild(item);
+        }
+
+        test("Valid description" , validateDescription("Lunch at cafe"));
+        test("Valid amount", validateAmount("500"));
+        test("Reject zero amount", !validateAmount("0"));
+        test("Valid category", validateCategory("food"));
+        test("Valid date", validateDate("2026-10-18"));
+        test("Reject invalid date", !validateDate("2026-02-30"));
+        test("reject repeated words", !validateDuplicateWords("book book purchase"));
+        test("Accept normal description", validateDuplicateWords("book purchase"));
+
+        results.textContent = 
+            passed + " tests passed; " + failed + " tests failed.";
+
+    </script>
+</body>
+
+</html>

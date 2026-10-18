@@ -6,7 +6,8 @@ import {
     validateDescription,
     validateAmount,
     validateCategory,
-    validateDate
+    validateDate,
+    validateDuplicateWords
 } from "./validators.js";
 
 import { searchTransactions } from "./search.js";
@@ -103,6 +104,10 @@ transactionForm.addEventListener("submit", function (event) {
 
     if (!validateDescription(description)) {
         alert("Description must be 2–50 characters and contain only letters, numbers, spaces, apostrophes, or hyphens.");
+        return;
+    }
+    if (!validDuplicateWords(description)) {
+        alert("Please avoid repeating the same word twice in a row.");
         return;
     }
 

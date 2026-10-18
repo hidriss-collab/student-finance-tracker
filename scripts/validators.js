@@ -41,3 +41,8 @@ export function validateDate(date) {
         parsedDate.getDate() === day
     );
 }
+
+export function validateDuplicateWords(description) {
+    const pattern = /\b(\w+)\s+\1\b/i;
+    return !pattern.test(description);
+}

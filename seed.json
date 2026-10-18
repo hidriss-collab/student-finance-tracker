@@ -1,0 +1,94 @@
+[
+    {
+        "id": "txn_001",
+        "description": "Lunch at cafeteria",
+        "amount": 5000,
+        "category": "food",
+        "date": "2026-10-18",
+        "createdAt": "2026-10-18T08:00:00Z",
+        "updatedAt": "2026-10-18T08:00:00Z"
+    },
+    {
+        "id": "txn_002",
+        "description": "Python book",
+        "amount": 25000,
+        "category": "books",
+        "date": "2026-10-17",
+        "createdAt": "2026-10-17T08:00:00Z",
+        "updatedAt": "2026-10-17T08:00:00Z"
+    },
+    {
+        "id": "txn_003",
+        "description": "Bus pass",
+        "amount": 1500,
+        "category": "transport",
+        "date": "2026-10-16",
+        "createdAt": "2026-10-16T08:00:00Z",
+        "updatedAt": "2026-10-16T08:00:00Z"
+    },
+    {
+        "id": "txn_004",
+        "description": "Coffe with friends",
+        "amount": 800,
+        "category": "entertainment",
+        "date": "2026-10-15",
+        "createdAt": "2026-10-15T08:00:00Z",
+        "updatedAt": "2026-10-15T08:00:00Z"
+    },
+    {
+        "id": "txn_005",
+        "description": "University fees",
+        "amount": 150000,
+        "category": "fees",
+        "date": "2026-10-14",
+        "createdAt": "2026-10-14T12:00:00Z",
+        "updatedAt": "2026-10-14T12:00:00Z"
+    },
+    {
+        "id": "txn_006",
+        "description": "Notebook and pens",
+        "amount": 0.5,
+        "category": "books",
+        "date": "2026-10-13",
+        "createdAt": "2026-10-13T13:00:00Z",
+        "updatedAt": "2026-10-13T13:00:00Z"
+    },
+    {
+        "id": "txn_007",
+        "description": "weekend groceries",
+        "amount": 12500.75,
+        "category": "food",
+        "date": "2026-10-12",
+        "createdAt": "2026-10-12T14:00:00Z",
+        "updatedAt": "2026-10-12T14:00:00Z"
+    },
+    {
+        "id": "txn_008",
+        "description": "Movie night",
+        "amount": 3500,
+        "category": "entertainment",
+        "date": "2026-01-01",
+        "createdAt": "2026-10-11T15:00:00Z",
+        "updatedAt": "2026-10-11T15:00:00Z"
+    },
+    {
+        "id": "txn_009",
+        "description": "Other student expense",
+        "amount": 99999,
+        "category": "other",
+        "date": "2026-11-11",
+        "createdAt": "2026-10-18T08:00:00Z",
+        "updatedAt": "2026-10-18T08:00:00Z"
+    },
+    {
+        "id": "txn_001",
+        "description": "Tea and snacks",
+        "amount": 250,
+        "category": "food",
+        "date": "2026-10-09",
+        "createdAt": "2026-10-09T08:00:00Z",
+        "updatedAt": "2026-10-09T08:00:00Z"
+    }
+
+
+]

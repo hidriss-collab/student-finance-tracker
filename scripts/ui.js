@@ -31,7 +31,7 @@ export function displayTransactions(transactions) {
         const convertedAmount = convertCurrency(Number(transaction.amount));
 
         row.innerHTML = `
-            <td>${escapeHTML(transaction.description)}</td>
+            <td>${highlightText(transaction.description, document.getElementById("search-input").value)}</td>
             <td>${convertedAmount.toFixed(2)} ${settings.baseCurrency}</td>
             <td>${escapeHTML(transaction.category)}</td>
             <td>${escapeHTML(transaction.date)}</td>
@@ -109,6 +109,25 @@ function escapeHTML(value) {
 
         return replacements[character];
     });
+}
+
+function highlightText(text, query, caseSensitive = false) {
+    const safeText = escapeHTML(text);
+
+    if (!query.trim()) {
+        return safeText;
+    }
+
+    try {
+        const flags = caseSensitive ? "g" : "gi";
+        const pattern = new RegExp(query, flags);
+
+        return safeText.replace(pattern, function (match) {
+            return `<mark>${match}</mark>`;
+        });
+    } catch (error) {
+        return safeText;
+    }
 }
 
 export function drawSpendingChart(transactions) {
