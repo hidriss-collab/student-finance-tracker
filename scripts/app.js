@@ -7,7 +7,7 @@ import {
     validateAmount,
     validateCategory,
     validateDate,
-    validateDuplicateWords
+    validDuplicateWords
 } from "./validators.js";
 
 import { searchTransactions } from "./search.js";
