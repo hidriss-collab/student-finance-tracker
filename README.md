@@ -281,3 +281,4 @@ https://hidriss-collab.github.io/student-finance-tracker
 The Student Finance Tracker demonstrates responsive web design, semantic HTML, CSS layouts, JavaScript DOM manipulation, regular expressions, form validation, localStorage, JSON data handling, and accessibility.
 
 The application provides students with a simple interface for recording expenses, organizing transactions, monitoring spending, and managing a monthly budget.
+https://canva.link/nvca5jzrm5ygon1 this is the demo video
