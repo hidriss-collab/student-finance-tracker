@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Finance Tracker</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <a href="#main-content">Skip to main content</a>
+    <aside class="sidebar" id="sidebar">
+        <header class="sidebar-header">
+            <h2>Student Finance Tracker</h2>
+            <nav class="sidebar-nav">
+                <a href="#dashboard">Dashboard</a>
+                <a href="#transactions">Transactions</a>
+                <a href="#add-transaction">Add Transaction</a>
+                <a href="#settings">Settings</a>
+                <a href="#about">About</a>
+            </nav>
+        </header>
+    </aside>
+    <main id="main-content">
+        <button type="button" id="menu-toggle" aria-expanded="false" aria-controls="sidebar">☰ Menu</button>
+        <section id="dashboard">
+            <h2>Financial Dashboard</h2>
+            <p>Track your spending and manage your student budget.</p>
+            <div class="stats-container">
+                <article class="stat-card">
+                    <h3>Total Transactions</h3>
+                    <p id="total-transactions">0</p>
+                </article>
+
+                <article class="stat-card">
+                    <h3>Total Spending</h3>
+                    <p id="total-spending">None</p>
+                </article>
+
+                <article class="stat-card">
+                    <h3>Top Category</h3>
+                    <p id="top-category">None</p>
+                </article>
+
+                <article class="stat-card">
+                    <h3>Budget Remaining</h3>
+                    <p id="budget-remaining">0.00 RWF</p>
+                </article>
+                <article class="stat-card">
+                    <h3>Budget Status</h3>
+                    <p id="budget-status" role="status" aria-live="polite">Your budget is on track.</p>
+                </article>
+            </div>
+            <div class="spending-trend">
+                <h3>Spending Trend (Last 7 Days)</h3>
+                <canvas id="spending-chart" aria-label="Spending during the last seven days" role="img"></canvas>
+            </div>
+        </section>
+        <section id="transactions">
+            <h2>Transactions</h2>
+            <p>View and manage your expenses.</p>
+            <div class="search-container">
+                <label for="search-input">Search transactions:</label>
+                <input type="text" id="search-input" placeholder="Search transactions...">
+            </div>
+            <div class="form-group">
+                <label for="sort-transactions">Sort transactions by:</label>
+                <select id="sort-transactions">
+                    <option value="date-desc">Newest first</option>
+                    <option value="date-asc">Oldest first</option>
+                    <option value="amount-desc">Highest amount</option>
+                    <option value="amount-asc">Lowest amount</option>
+                    <option value="description-asc">Description (A–Z)</option>
+                </select>
+            </div>
+            <div class="data-actions">
+                <button type="button" id="export-button">Export JSON</button>
+
+                <button type="button" id="import-button">Import JSON</button>
+
+                <input type="file" id="import-file" accept=".json,application/json" hidden>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactions-table-body">
+                        <tr>
+                            <td colspan="5">No transactions yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section id="add-transaction">
+            <h2>Add a Transaction</h2>
+            <p>Enter the details of your expense below.</p>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" placeholder="e.g. Breakfast at cafeteria" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount (RWF)</label>
+                    <input type="number" id="amount" placeholder="e.g. 5000" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+
+                    <select id="category" required>
+                        <option value="">Choose a category</option>
+                        <option value="food">Food</option>
+                        <option value="books">Books</option>
+                        <option value="transport">Transport</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="fees">Fees</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="transaction-date">Date</label>
+                    <input type="date" id="transaction-date" required>
+                </div>
+                <button type="submit">Save Transaction</button>
+            </form>
+        </section>
+        <section id="settings">
+            <h2>Settings</h2>
+            <p>Customize your financial preferences.</p>
+
+            <form id="settings-form">
+                <div class="form-group">
+                    <label for="monthly-budget">Monthly Budget</label>
+                    <input type="number" id="monthly-budget" min="0.01" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="base-currency">Base Currency</label>
+                    <select id="base-currency" required>
+                        <option value="RWF">RWF-Rwandan Franc</option>
+                        <option value="USD">USD-US Dollar</option>
+                        <option value="EUR">EUR-Euro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="usd-rate">USD Exchange Rate</label>
+                    <input type="number" id="usd-rate" min="0.000001" step="any" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eur-rate">EUR Exchange Rate</label>
+                    <input type="number" id="eur-rate" min="0.000001" step="any" required>
+                </div>
+
+                <button type="submit">Save Settings</button>
+            </form>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>The Student Finance Tracker helps students manage their finances by recording daily expenses, organizing
+                transactions into categories, and monitoring their spending habits. It provides a clear overview of
+                total spending and remaining budgets, helping students make informed financial decisions and develop
+                better money management skills.</p>
+
+        </section>
+    </main>
+    <script type="module" src="scripts/app.js"></script>
+</body>
+
+</html>
