@@ -7,7 +7,7 @@ import {
     validateAmount,
     validateCategory,
     validateDate,
-    validDuplicateWords
+    validateDuplicateWords
 } from "./validators.js";
 
 import { searchTransactions } from "./search.js";
@@ -106,7 +106,7 @@ transactionForm.addEventListener("submit", function (event) {
         alert("Description must be 2–50 characters and contain only letters, numbers, spaces, apostrophes, or hyphens.");
         return;
     }
-    if (!validDuplicateWords(description)) {
+    if (!validateDuplicateWords(description)) {
         alert("Please avoid repeating the same word twice in a row.");
         return;
     }
