@@ -156,18 +156,14 @@ transactionForm.addEventListener("submit", function (event) {
         };
 
         transactions.push(transaction);
+        saveData();
+        refreshPage();
+        transactionForm.reset();
+        editingTransactionId = null;
+        document.getElementById("search-input").value = "";
+        alert("Transaction saved successfully!");
+        return;
     }
-
-    saveData();
-    refreshPage();
-
-    transactionForm.reset();
-    editingTransactionId = null;
-
-
-    document.getElementById("search-input").value = "";
-
-    alert("Transaction saved successfully!");
 });
 
 const searchInput = document.getElementById("search-input");
@@ -195,7 +191,7 @@ function applyFilters() {
     }
     else if (sortOption === "description-asc") {
         results.sort((a, b) =>
-            a.description.localeCompare(b.description)
+            a.description.toLowerCase().localeCompare(b.description.toLowerCase())
         );
     }
 
